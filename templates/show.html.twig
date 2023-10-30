@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of authors</title>
+</head>
+<body>
+    <div>
+        <h1>List of authors</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in authors %}
+                    <tr>
+                        <td>{{ a.username }}</td>
+                        <td>{{ a.email }}</td>
+                
+                        <td>
+                           <a href="{{path('app_Add')}}"><i class="far fa-edit"></i> Add</a>
+                            <a href="{{ path('app_edit', {'id': a.id}) }}"><i class="far fa-edit"></i> Edit</a>
+                            <a href="{{ path('app_delete', {'id': a.id}) }}"><i class="far fa-trash-alt"></i> Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>
